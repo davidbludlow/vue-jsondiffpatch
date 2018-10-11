@@ -97,9 +97,9 @@ export const collectChildrenPatchFilter = function collectChildrenPatchFilter(
       Object.prototype.hasOwnProperty.call(context.left, child.childName) &&
       child.result === undefined
     ) {
-      delete context.left[child.childName];
+      Vue.delete(context.left, child.childName);
     } else if (context.left[child.childName] !== child.result) {
-      context.left[child.childName] = child.result;
+      Vue.set(context.left, child.childName, child.result);
     }
   }
   context.setResult(context.left).exit();

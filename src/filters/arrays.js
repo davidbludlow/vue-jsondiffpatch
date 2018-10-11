@@ -378,7 +378,7 @@ export const collectChildrenPatchFilter = function collectChildrenPatchFilter(
   let child;
   for (let index = 0; index < length; index++) {
     child = context.children[index];
-    context.left[child.childName] = child.result;
+    Vue.set(context.left, child.childName, child.result);
   }
   context.setResult(context.left).exit();
 };
